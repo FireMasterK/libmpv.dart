@@ -15,8 +15,6 @@ import 'package:libmpv/src/models/playlist_mode.dart';
 
 import 'package:libmpv/generated/bindings.dart' as generated;
 
-import 'package:libmpv/src/plugins/youtube.dart';
-
 typedef Playlist = List<Media>;
 
 /// ## Player
@@ -58,7 +56,7 @@ class Player {
     void Function()? onCreate,
   }) {
     if (yt) {
-      youtube = YouTube();
+      // youtube = YouTube();
     }
     _create().then(
       (_) => onCreate?.call(),

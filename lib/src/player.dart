@@ -51,13 +51,9 @@ class Player {
   Player({
     this.video = true,
     this.osc = true,
-    bool yt = true,
     this.title,
     void Function()? onCreate,
   }) {
-    if (yt) {
-      // youtube = YouTube();
-    }
     _create().then(
       (_) => onCreate?.call(),
     );
@@ -97,7 +93,6 @@ class Player {
     _positionController.close();
     _durationController.close();
     _indexController.close();
-    youtube?.close();
   }
 
   /// Opens a [List] of [Media]s into the [Player] as a playlist.
@@ -645,9 +640,6 @@ class Player {
 
   /// User defined window title for the MPV instance.
   final String? title;
-
-  /// YouTube daemon to serve links.
-  YouTube? youtube;
 
   /// [Pointer] to [generated.mpv_handle] of this instance.
   late Pointer<generated.mpv_handle> _handle;
